@@ -1,0 +1,85 @@
+
+#ribbon {
+
+    background-color: #212529;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(255, 255, 255, 0.514) 25px, rgba(255, 255, 255, 0.514) 40px);
+}
+
+#ribbon::after{
+    content: '';
+    background-color: transparent;
+    display: block;
+    height: 20px;
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    left: auto;
+    margin-top: -40px;
+
+}
+
+#cunumi{
+
+    background-color: #212529;
+    position: relative;
+    margin-top: -20px;
+    z-index: 10;
+    box-shadow: 10px 10px 20px rgb(255, 254, 254);
+
+}
+
+#cunumi img{
+
+    position: relative;
+    margin-top: -30px;
+
+}
+
+
+
+#separator-ribbon{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+
+#separator-ribbon .content{
+    width: 150%;
+    height: 150px;
+    margin-left: -25%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.card-border{
+    border: solid 10px white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all ease-out 0.2s;
+}
+
+.card-border :hover{
+
+    transform: scale(1.05);
+}
+
+
+#juegos{
+
+    background-size: cover;
+    background: rgb(0, 233, 213);
+    background: url(../imagenes/posibleFondo3.jpg), linear-gradient(0deg,rgba(255,255,255,1) 0%, rgb(255, 255, 255) 57%);
+    background-repeat: repeat-x;
+    background-size: 100%;
+    margin-top: -20px;
+
+}
+
+.juegos{
+    border-radius: 10px;
+    height: 40px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
