@@ -16,16 +16,8 @@ form.addEventListener("submit", e=>{
     
     let entrar = false;
 
-    let validar = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-
-    if (usser.value.length < 5){
-
-        men += 'Debe ingresar un usuario válido. Esta debe ser mayor a 7 caracteres.<br>';
-        entrar = true;
     
     
-    }
 
 
     //if (usserv.value.length < 1){
@@ -37,15 +29,7 @@ form.addEventListener("submit", e=>{
     //}
 
 
-    if (validar.test(correo.value)){
-
-
-    }else{
-
-        men+="Debe ingresar un correo válido.<br>"
-        entrar=true
-
-    }
+    
 
     if (precio.value < 1){
         men+="Debe ingresar un precio válido.<br>"

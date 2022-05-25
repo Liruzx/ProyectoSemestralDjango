@@ -9,3 +9,4 @@ def paginaPrincipal(request):
 
 def Registro(request):
     return render(request,'GGEZ/Registro.html')
+
