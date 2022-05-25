@@ -12,13 +12,13 @@ class Usuario(models.Model):
     fechaNac = models.CharField(max_length=50,verbose_name="Fecha de nacimiento",blank=False,null=False)
     contra = models.CharField(max_length=50,verbose_name="Contraseña",blank=False,null=False)
 
-    def __str__(self) :
-        return self.nombreUsuario, self.correo, self.fechaNac,self.contra 
+    def __str__(self):
+        return self.nombreUsuario
 
 
 #MODELO PARA PRODUCTO
 
-class producto(models.Model):
+class Producto(models.Model):
     idProducto = models.IntegerField(primary_key=True, verbose_name="Id de usuario")
     precio = models.IntegerField(verbose_name="Precio",blank=False,null=False)
     nombreSkin = models.CharField(max_length=50,verbose_name="Nombre de la skin",blank=False,null=False)
@@ -27,6 +27,6 @@ class producto(models.Model):
     descripcion = models.CharField(max_length=50,verbose_name="Descripcion")
 
 
-    def __str__(self) :
-        return self.nombreSkin, self.nombreSkin, self.categoria, self.descripcion
+    def __str__(self):
+        return self.nombreSkin
 
