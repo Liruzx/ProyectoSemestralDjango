@@ -10,3 +10,14 @@ def paginaPrincipal(request):
 def Registro(request):
     return render(request,'GGEZ/Registro.html')
 
+def index(request):
+    return render(request,'GGEZ/index.html')
+
+def menuCompraLOL(request):
+    return render(request,'GGEZ/menuCompraLOL.html')
+
+def menuCompraVALO(request):
+    return render(request,'GGEZ/menuCompraVALO.html')
+
+def menuCompraCSGO(request):
+    return render(request,'GGEZ/menuCompraCSGO.html')
