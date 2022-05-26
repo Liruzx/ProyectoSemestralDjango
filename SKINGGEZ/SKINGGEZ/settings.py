@@ -80,12 +80,12 @@ DATABASES = {
         'NAME': '127.0.0.1:1521/xe',
         'USER': 'ETESECH',
         'PASSWORD': '24052022',
-         'TEST': {
+        'TEST': {
             'USER': 'default_test',
             'TBLSPACE': 'default_test_tbls',
             'TBLSPACE_TMP': 'default_test_tbls_tmp',
-        },       
-    }
+        },
+    },
 }
 
 
