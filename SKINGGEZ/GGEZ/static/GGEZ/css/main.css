@@ -5,6 +5,10 @@
     background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(255, 255, 255, 0.514) 25px, rgba(255, 255, 255, 0.514) 40px);
 }
 
+.fondo_elemento{
+    background-image: url('/static/GGEZ/img/posibleFondo6.webp');
+}
+
 #ribbon::after{
     content: '';
     background-color: transparent;
@@ -70,7 +74,7 @@
 
     background-size: cover;
     background: rgb(0, 233, 213);
-    background: url(img/posibleFondo3.jpg), linear-gradient(0deg,rgba(255,255,255,1) 0%, rgb(255, 255, 255) 57%);
+    background: url('/static/GGEZ/img/posibleFondo3.jpg'), linear-gradient(0deg,rgba(255,255,255,1) 0%, rgb(255, 255, 255) 57%);
     background-repeat: repeat-x;
     background-size: 100%;
     margin-top: -20px;

@@ -21,3 +21,12 @@ def menuCompraVALO(request):
 
 def menuCompraCSGO(request):
     return render(request,'GGEZ/menuCompraCSGO.html')
+
+def menuVentaLOL(request):
+    return render(request, 'GGEZ/menuVentaLOL.html')
+    
+def menuVentaVALO(request):
+    return render(request, 'GGEZ/menuVentaVALO.html')
+
+def menuVentaCSGO(request):
+    return render(request, 'GGEZ/menuVentaCSGO.html')
