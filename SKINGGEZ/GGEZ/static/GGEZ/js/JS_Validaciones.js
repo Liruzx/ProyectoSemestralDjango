@@ -114,7 +114,7 @@ form.addEventListener("submit", e=>{
         
     }else{
         mensaje.innerHTML = 'Registrado'
-        mensaje.innerHTML = '<a href="paginaPrincipal.html">Registrado Correctamente<br>Inicie sesion</a>'   
+        mensaje.innerHTML = '<a href="/static/GGEZ/paginaPrincipal.html">Registrado Correctamente<br>Inicie sesion</a>'   
         
     }
     

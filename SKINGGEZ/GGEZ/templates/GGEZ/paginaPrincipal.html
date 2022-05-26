@@ -66,7 +66,7 @@
 
         <input class="control" type="password" name="contraseña" id="contraseña" placeholder="Ingrese contraseña">
 
-        <p><a href="recuperarContrasenia.html" style="color: white;">¿Olvidaste tu contraseña?</a></p>
+        <p><a href="{% url 'recuperarContrasenia' %}" style="color: white;">¿Olvidaste tu contraseña?</a></p>
 
        <a href="index.html"> <input class="boton" type="submit" value="Ingresar" style="font-weight: 700"> </a>
 
@@ -84,7 +84,7 @@
         <h1>¿Aún no eres parte de la comunidad SkinsGGEZ? Únetenos!</h1>
         
    
-       <a href="Registro.html"> <input  class="boton" type="submit" value="Registrate" style="font-weight: 700;" ></a> 
+       <a href="{% url 'Registro' %}"> <input  class="boton" type="submit" value="Registrate" style="font-weight: 700;" ></a> 
 
 
         

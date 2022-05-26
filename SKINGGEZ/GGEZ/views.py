@@ -30,3 +30,19 @@ def menuVentaVALO(request):
 
 def menuVentaCSGO(request):
     return render(request, 'GGEZ/menuVentaCSGO.html')
+
+def chatCompra(request):
+    return render(request, 'GGEZ/chatCompra.html')
+
+
+
+def recuperarContrasenia(request):
+    return render(request, 'GGEZ/recuperarContrasenia.html')
+
+def cambioDeContrasenia(request):
+    return render(request, 'GGEZ/cambioDeContrasenia.html')
+
+def mensajeCambioDeContrasenia(request):
+    return render(request, 'GGEZ/mensajeCambioDeContrasenia.html')
+
+

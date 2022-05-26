@@ -12,5 +12,9 @@ urlpatterns = [
     path('menuVentaLOL/',menuVentaLOL,name="menuVentaLOL"),
     path('menuVentaVALO/',menuVentaVALO,name="menuVentaVALO"),
     path('menuVentaCSGO/',menuVentaCSGO,name="menuVentaCSGO"),
+    path('chatCompra/',chatCompra,name="chatCompra"),
+    path('recuperContrasenia/',recuperarContrasenia,name="recuperarContrasenia"),
+    path('cambioDeContrasenia/',cambioDeContrasenia,name="cambioDeContrasenia"),
+    path('mensajeCambioDeContrasenia/',mensajeCambioDeContrasenia,name="mensajeCambioDeContrasenia"),
     
 ]
