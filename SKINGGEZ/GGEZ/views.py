@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Usuario
 
 # Create your views here.
 
@@ -8,7 +9,32 @@ def paginaPrincipal(request):
     return render(request, 'GGEZ/paginaPrincipal.html')
 
 def Registro(request):
-    return render(request,'GGEZ/Registro.html')
+
+        nombreUsuario = request.POST['nombre_usuario']
+        correo = request.POST['correo']
+        fechaNac = request.POST['fecha_na']
+        contra = request.POST['contraseña']
+        
+        
+        Usuario.objects.create(nombreUsuario = nombreUsuario, correo = correo, fechaNac = fechaNac, contra = contra )
+        
+        
+        
+        return render(request,'GGEZ/Registro.html')
+
+
+    
+   
+
+
+    
+
+
+
+    
+
+
+
 
 def index(request):
     return render(request,'GGEZ/index.html')

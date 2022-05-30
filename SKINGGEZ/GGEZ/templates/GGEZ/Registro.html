@@ -59,70 +59,76 @@
     <div class="container-fluid">
 
 
-    <form action="" method="post" name="form" id="form">
+    
+
+
         <section class="registro">
+            <form action="{% url 'paginaPrincipal' %}" method="POST" name="form" id="form" enctype="multipart/form-data">
+                {% csrf_token %}
 
         
 
-            <div class="row">
+                <div class="row">
+                    
+                    <h1>Registrarse</h1>
                 
-                <h1>Registrarse</h1>
-            
-            </div>
+                </div>
 
-            <div class="row form-group">
+                <div class="row form-group">
 
-                <input class="control" type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Ingrese nombre de usuario">
+                    <input class="control" type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Ingrese nombre de usuario">
+                    
+
+                </div> 
+                    
+                <div class="row form-group">
+                    
+                    <input class="control" type="email" name="correo" id="correo" placeholder="Ingrese correo electronico">
                 
-
-            </div> 
+                </div> 
+                    
+                <div class="row form-group"> 
+                    
+                    <input class="control" type="text" name="fecha_na" id="fecha_na" placeholder="Ingrese Fecha de nacimiento DD/MM/YY" >
                 
-            <div class="row form-group">
+                </div> 
+
+                <div class="row form-group">
+                    
+                    <input class="control" type="password" name="contraseña" id="contraseña" placeholder="Ingrese contraseña">
+                    
+                </div> 
+
+                <div class="row form-group">
+                    
+                    <input class="control" type="password" name="confi_contraseña" id="confi_contraseña" placeholder="Confirmar contraseña">
+                    
+                </div> 
+
+                <div class="row form-group">
+                    
+                    <p>Estoy de acuerdo con <a  href="javascript:ventanaSecundaria('terminos.html')">Terminos y Condiciones</a></p>
                 
-                <input class="control" type="email" name="correo" id="correo" placeholder="Ingrese correo electronico">
-            
-            </div> 
+                </div> 
+
+                <div class="row form-group">
+
+                    
+                    <input type="submit" class="boton" value="Registrarse">
+
+                    <!--<a href="index.html"><input class="boton" type="submit" id="boton" value="Registrar"></a>-->
                 
-            <div class="row form-group"> 
-                
-                <input class="control" type="text" name="fecha_na" id="fecha_na" placeholder="Ingrese Fecha de nacimiento DD/MM/YY" >
-            
-            </div> 
+                </div>  
 
-            <div class="row form-group">
-                 
-                <input class="control" type="password" name="contraseña" id="contraseña" placeholder="Ingrese contraseña">
-                
-            </div> 
+                <div class="row"> <p><a href="{%url 'paginaPrincipal'%}">¿Ya tengo Cuenta?</a></p></div> 
 
-            <div class="row form-group">
-                 
-                <input class="control" type="password" name="confi_contraseña" id="confi_contraseña" placeholder="Confirmar contraseña">
-                
-            </div> 
+                <p id="mensaje"></p>
 
-            <div class="row form-group">
-                
-                <p>Estoy de acuerdo con <a  href="javascript:ventanaSecundaria('terminos.html')">Terminos y Condiciones</a></p>
-            
-            </div> 
-
-            <div class="row form-group">
-
-                
-                <a href="{%url 'paginaPrincipal'%}"><input type="submit" class="boton" value="Registrarse"></a>
-
-                <!--<a href="index.html"><input class="boton" type="submit" id="boton" value="Registrar"></a>-->
-            
-            </div>  
-
-            <div class="row"> <p><a href="{%url 'paginaPrincipal'%}">¿Ya tengo Cuenta?</a></p></div> 
-
-            <p id="mensaje"></p>
+            </form>
             
         </section>
     
-    </form>    
+     
 
 </div>
 
