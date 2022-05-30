@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import Usuario
+from .models import Usuario, Producto
+from .forms import formRegistro
+from django.contrib import messages
 
 # Create your views here.
 
@@ -10,17 +12,16 @@ def paginaPrincipal(request):
 
 def Registro(request):
 
-        nombreUsuario = request.POST['nombre_usuario']
-        correo = request.POST['correo']
-        fechaNac = request.POST['fecha_na']
-        contra = request.POST['contraseña']
+    form = formRegistro(request.POST or None)
+    if form.is_valid():
+        form.save()		
+        messages.success(request, 'Usuario registrado correctamente.')
+        form = formRegistro()
+    else:
+        messages.error(request, 'Error al registrar usuario. Revise los datos.')
+    contexto = {'form': form }
         
-        
-        Usuario.objects.create(nombreUsuario = nombreUsuario, correo = correo, fechaNac = fechaNac, contra = contra )
-        
-        
-        
-        return render(request,'GGEZ/Registro.html')
+    return render(request,'GGEZ/Registro.html',contexto)
 
 
     

@@ -63,7 +63,7 @@
 
 
         <section class="registro">
-            <form action="{% url 'paginaPrincipal' %}" method="POST" name="form" id="form" enctype="multipart/form-data">
+            <form action="{% url 'Registro' %}" method="POST" name="form" id="form" enctype="multipart/form-data">
                 {% csrf_token %}
 
         
@@ -76,32 +76,32 @@
 
                 <div class="row form-group">
 
-                    <input class="control" type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Ingrese nombre de usuario">
+                    <input class="control" type="text" name="nombreUsuario" id="nombreUsuario" placeholder="Ingrese nombre de usuario" >
                     
 
                 </div> 
                     
                 <div class="row form-group">
                     
-                    <input class="control" type="email" name="correo" id="correo" placeholder="Ingrese correo electronico">
+                    <input class="control " type="email" name="correo" id="correo" placeholder="Ingrese correo electronico" >
                 
                 </div> 
                     
                 <div class="row form-group"> 
                     
-                    <input class="control" type="text" name="fecha_na" id="fecha_na" placeholder="Ingrese Fecha de nacimiento DD/MM/YY" >
+                    <input class="control " type="text" name="fechaNac" id="fechaNac" placeholder="Ingrese Fecha de nacimiento DD/MM/YY" >
                 
                 </div> 
 
                 <div class="row form-group">
                     
-                    <input class="control" type="password" name="contraseña" id="contraseña" placeholder="Ingrese contraseña">
+                    <input class="control " type="password" name="contra" id="contra" placeholder="Ingrese contraseña" >
                     
                 </div> 
 
                 <div class="row form-group">
                     
-                    <input class="control" type="password" name="confi_contraseña" id="confi_contraseña" placeholder="Confirmar contraseña">
+                    <input class="control " type="password" name="confi_contraseña" id="confi_contraseña" placeholder="Confirmar contraseña" > 
                     
                 </div> 
 
@@ -114,7 +114,7 @@
                 <div class="row form-group">
 
                     
-                    <input type="submit" class="boton" value="Registrarse">
+                    <button type="submit" class="boton" >Registrarse</button>
 
                     <!--<a href="index.html"><input class="boton" type="submit" id="boton" value="Registrar"></a>-->
                 
@@ -122,7 +122,17 @@
 
                 <div class="row"> <p><a href="{%url 'paginaPrincipal'%}">¿Ya tengo Cuenta?</a></p></div> 
 
+                
+
                 <p id="mensaje"></p>
+                {% if messages %}
+                <div>
+                {% for i in messages %}
+                    <p style="color: rgb(255, 255, 255);">{{ i }}</p>
+                {% endfor %}
+                </div>
+
+                {% endif %}
 
             </form>
             
