@@ -41,7 +41,18 @@ def index(request):
     return render(request,'GGEZ/index.html')
 
 def menuCompraLOL(request):
-    return render(request,'GGEZ/menuCompraLOL.html')
+
+    productos = Producto.objects.all()
+    contexto = {
+            'productos' : productos
+    }
+
+
+
+
+
+
+    return render(request,'GGEZ/menuCompraLOL.html',contexto)
 
 def menuCompraVALO(request):
     return render(request,'GGEZ/menuCompraVALO.html')
