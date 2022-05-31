@@ -8,14 +8,18 @@
 {% block contenido %}
 
 <div class="container">
-        
     <div class="row">
         <h1 class="titulo" style="text-align: center; background-color: black;  border: whitesmoke 5px dashed;">Publica tu Skin</h1>
     </div>
-
     <div class="row">
         <form method="post" name="FormVenta" enctype="multipart/form-data" id="form">
             
+
+
+            <div class="input-group form-group mb-3">
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre de usuario">
+                <span class="input-group-text">✦</span>
+            </div>
 
 
             <div class="input-group form-group  mb-3">
@@ -26,23 +30,7 @@
             <div class="input-group form-group mb-3">
                 <input type="text" class="form-control" id="skinname" placeholder="Nombre de la Skin">
                 <span class="input-group-text">✦</span>
-
-                <select name="Categoria Skins" size="1" required>
-
-                    <option disabled>Selecciona una categoria de skin</option>
-                    <option value="1">SS+</option>
-                    <option value="2">A</option>
-                    <option value="3">B</option>
-                    <option value="4">C</option>
-                    <option value="4">D</option>
-                    <option value="4">E</option>
-                    <option value="4">F</option>
-                   
-
-                </select>
             </div>
-
-
 
             <div class="form-group mb-3">
                 
@@ -51,16 +39,9 @@
                     
             </div>
 
-            <div class="input-group form-group mb-3">
-                <span class="input-group-text">Desipción adicional</span>
-                <textarea class="form-control" ></textarea>
-            </div>
+            
 
-
-
-
-
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <button class="btn btn-light" style="margin-top: 10px;" type="reset">Borrar todo</button>
 
                 <button class="btn btn-light" style="margin-top: 10px;" type="submit">Publicar</button>

@@ -122,9 +122,6 @@
 
                 <div class="row"> <p><a href="{%url 'paginaPrincipal'%}">¿Ya tengo Cuenta?</a></p></div> 
 
-                
-
-                <p id="mensaje"></p>
                 {% if messages %}
                 <div>
                 {% for i in messages %}
@@ -133,6 +130,10 @@
                 </div>
 
                 {% endif %}
+                
+
+                <p id="mensaje"></p>
+                
 
             </form>
             
@@ -146,7 +147,7 @@
 
 
 
-    <script src="{% static 'GGEZ/js/JS_Validaciones.js'%}"></script>
+    <!--<script src="{% static 'GGEZ/js/JS_Validaciones.js'%}"></script>-->
     <script src="{%static 'GGEZ/js/JS.js'%}"> </script>
  </body>
 </html>

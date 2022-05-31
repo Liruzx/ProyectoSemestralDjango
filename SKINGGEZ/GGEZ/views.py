@@ -47,11 +47,6 @@ def menuCompraLOL(request):
             'productos' : productos
     }
 
-
-
-
-
-
     return render(request,'GGEZ/menuCompraLOL.html',contexto)
 
 def menuCompraVALO(request):
@@ -61,8 +56,28 @@ def menuCompraCSGO(request):
     return render(request,'GGEZ/menuCompraCSGO.html')
 
 def menuVentaLOL(request):
+
+    if request.POST:
+        produ = Producto()
+        produ.precio = request.POST.get('precio') 
+        produ.nombreSkin = request.POST.get('nombreSkin')       
+        produ.nombreUsuario = request.POST.get('nombreUsuario')  
+        produ.imagenSkin = request.FILES.get('imagenSkin')
+
+        try:
+            produ.save()
+            mensaje = 'Publicado correctamente'
+        except:
+            
+            mensaje = 'No se ha publicado correctamente'
+ 
+
+
     return render(request, 'GGEZ/menuVentaLOL.html')
     
+
+
+
 def menuVentaVALO(request):
     return render(request, 'GGEZ/menuVentaVALO.html')
 

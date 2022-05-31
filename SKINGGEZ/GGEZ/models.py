@@ -20,9 +20,9 @@ class Usuario(models.Model):
 class Producto(models.Model):
     precio = models.IntegerField(verbose_name="Precio")
     nombreSkin = models.CharField(max_length=50,verbose_name="Nombre de la skin")
-    categoria = models.CharField(max_length=30,verbose_name="Categoria")
+    nombreUsuario = models.CharField(max_length=50,verbose_name="Nombre de usuario ")
     imagenSkin = models.ImageField(upload_to="skins", null= True)
-    descripcion = models.CharField(max_length=50,verbose_name="Descripcion")
+    
 
 
     def __str__(self):
