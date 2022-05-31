@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Usuario, Producto
 from .forms import formRegistro
 from django.contrib import messages
@@ -8,6 +8,14 @@ from django.contrib import messages
 
 
 def paginaPrincipal(request):
+    if request.method == 'POST':
+        try:
+            detalleUsuario=Usuario.objects.get(nombreUsuario=request.POST.get('correo'),contra =request.POST.get('contra'))
+            request.session['nombreUsuario']= detalleUsuario.nombreUsuario
+            return render(request,'GGEZ/index.html')
+        except Usuario.DoesNotExist as o:
+            messages.success(request, 'Nombre de usuario o Contraseña no es correcto')
+
     return render(request, 'GGEZ/paginaPrincipal.html')
 
 def Registro(request):
@@ -38,6 +46,9 @@ def Registro(request):
 
 
 def index(request):
+    user = Usuario()
+    
+    
     return render(request,'GGEZ/index.html')
 
 def menuCompraLOL(request):
