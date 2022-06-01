@@ -60,7 +60,7 @@
         </div>
         <div class="offcanvas-body">
           <p>Nombre de usuario:{{request.session.nombreUsuario}} </p>
-          <p>Correo: </p>
+          <p>Correo: {{correo}}</p>
           
           <button class="btn btn-secondary" type="button">Editar</button>
           <a href="{% url 'paginaPrincipal' %}"><button class="btn btn-secondary"  type="button">Cerrar sesion</button></a>

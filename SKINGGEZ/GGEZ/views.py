@@ -10,7 +10,7 @@ from django.contrib import messages
 def paginaPrincipal(request):
     if request.method == 'POST':
         try:
-            detalleUsuario=Usuario.objects.get(nombreUsuario=request.POST.get('correo'),contra =request.POST.get('contra'))
+            detalleUsuario=Usuario.objects.get(nombreUsuario=request.POST.get('nombreUsuario'),contra =request.POST.get('contra'))
             request.session['nombreUsuario']= detalleUsuario.nombreUsuario
             return render(request,'GGEZ/index.html')
         except Usuario.DoesNotExist as o:
@@ -46,7 +46,8 @@ def Registro(request):
 
 
 def index(request):
-    user = Usuario()
+    
+    
 
     
     return render(request,'GGEZ/index.html')
