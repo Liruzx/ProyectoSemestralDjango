@@ -12,29 +12,29 @@
         <h1 class="titulo" style="text-align: center; background-color: black;  border: whitesmoke 5px dashed;">Publica tu Skin</h1>
     </div>
     <div class="row">
-        <form method="post" name="FormVenta" enctype="multipart/form-data" id="form">
-            
+        <form action="{% url 'menuVentaCSGO' %}" method="POST" name="form"  enctype="multipart/form-data" id="form">
+            {% csrf_token %}
 
 
             <div class="input-group form-group mb-3">
-                <input type="text" class="form-control" id="nombre" placeholder="Nombre de usuario">
+                <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre de usuario">
                 <span class="input-group-text">✦</span>
             </div>
 
 
             <div class="input-group form-group  mb-3">
                 <span class="input-group-text">$</span>
-                <input type="number" class="form-control" id="precio" placeholder="Precio de la skin (CLP)">
+                <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio de la skin (CLP)">
             </div>
 
             <div class="input-group form-group mb-3">
-                <input type="text" class="form-control" id="skinname" placeholder="Nombre de la Skin">
+                <input type="text" class="form-control" id="nombreSkin" name="nombreSkin" placeholder="Nombre de la Skin">
                 <span class="input-group-text">✦</span>
             </div>
 
             <div class="form-group mb-3">
                 
-                <input type="file" class="form-control" id="upload" required>
+                <input type="file" class="form-control" id="imagenSkin" name="imagenSkin" required>
 
                     
             </div>
@@ -46,8 +46,16 @@
 
                 <button class="btn btn-light" style="margin-top: 10px;" type="submit">Publicar</button>
                 
-            </div>
+            {% if messages %}
+                <div>
+                {% for i in messages %}
+                    <p style="color: rgb(255, 255, 255);">{{ i }}</p>
+                {% endfor %}
+                </div>
 
+            {% endif %}
+
+            
             <p id="mensaje" style="color: white;"></p>
         </form>
 

@@ -44,12 +44,14 @@
 
                 <button class="btn btn-light" style="margin-top: 10px;" type="submit">Publicar</button>
                 
-            </div>  
+            {% if messages %}
+                <div>
+                {% for i in messages %}
+                    <p style="color: rgb(255, 255, 255);">{{ i }}</p>
+                {% endfor %}
+                </div>
 
-                <p style="color: white;">{{mensaje}}</p>
-
-            
-            </div>
+            {% endif %}
 
             
             <p id="mensaje" style="color: white;"></p>

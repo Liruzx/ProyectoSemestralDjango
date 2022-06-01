@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Usuario, Producto
+from .models import Usuario, Producto,Producto2,Producto3
 from .forms import formRegistro
 from django.contrib import messages
 
@@ -47,7 +47,7 @@ def Registro(request):
 
 def index(request):
     user = Usuario()
-    
+
     
     return render(request,'GGEZ/index.html')
 
@@ -61,10 +61,22 @@ def menuCompraLOL(request):
     return render(request,'GGEZ/menuCompraLOL.html',contexto)
 
 def menuCompraVALO(request):
-    return render(request,'GGEZ/menuCompraVALO.html')
+
+    productos2 = Producto2.objects.all()
+    contexto = {
+            'productos2' : productos2
+    }
+
+    return render(request,'GGEZ/menuCompraVALO.html',contexto)
 
 def menuCompraCSGO(request):
-    return render(request,'GGEZ/menuCompraCSGO.html')
+
+    productos3 = Producto3.objects.all()
+    contexto = {
+            'productos3' : productos3
+    }
+
+    return render(request,'GGEZ/menuCompraCSGO.html',contexto)
 
 def menuVentaLOL(request):
 
@@ -77,10 +89,10 @@ def menuVentaLOL(request):
 
         try:
             produ.save()
-            mensaje = 'Publicado correctamente'
+            messages.success(request, 'Se ha publicado Correctamente')
         except:
             
-            mensaje = 'No se ha publicado correctamente'
+             messages.success =(request, 'No se ha publicado correctamente')
  
 
 
@@ -90,9 +102,46 @@ def menuVentaLOL(request):
 
 
 def menuVentaVALO(request):
+
+    if request.POST:
+        produ = Producto2()
+        produ.precio2 = request.POST.get('precio') 
+        produ.nombreSkin2 = request.POST.get('nombreSkin')       
+        produ.nombreUsuario2 = request.POST.get('nombreUsuario')  
+        produ.imagenSkin2 = request.FILES.get('imagenSkin')
+
+        try:
+            produ.save()
+            messages.success(request, 'Se ha publicado Correctamente')
+        except:
+            
+             messages.success =(request, 'No se ha publicado correctamente')
+
+
+
     return render(request, 'GGEZ/menuVentaVALO.html')
 
 def menuVentaCSGO(request):
+
+    if request.POST:
+        produ = Producto3()
+        produ.precio3 = request.POST.get('precio') 
+        produ.nombreSkin3 = request.POST.get('nombreSkin')       
+        produ.nombreUsuario3 = request.POST.get('nombreUsuario')  
+        produ.imagenSkin3 = request.FILES.get('imagenSkin')
+
+        try:
+            produ.save()
+            messages.success(request, 'Se ha publicado Correctamente')
+        except:
+            
+             messages.success =(request, 'No se ha publicado correctamente')
+
+
+
+
+
+
     return render(request, 'GGEZ/menuVentaCSGO.html')
 
 def chatCompra(request):

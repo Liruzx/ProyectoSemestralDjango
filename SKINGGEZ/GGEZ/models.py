@@ -15,7 +15,7 @@ class Usuario(models.Model):
         return self.nombreUsuario
 
 
-#MODELO PARA PRODUCTO
+#MODELO PARA PRODUCTO LOL
 
 class Producto(models.Model):
     precio = models.IntegerField(verbose_name="Precio")
@@ -27,4 +27,31 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombreSkin
+
+#MODELO PRODUCTO VALO
+class Producto2(models.Model):
+    precio2 = models.IntegerField(verbose_name="Precio")
+    nombreSkin2 = models.CharField(max_length=50,verbose_name="Nombre de la skin")
+    nombreUsuario2 = models.CharField(max_length=50,verbose_name="Nombre de usuario ")
+    imagenSkin2 = models.ImageField(upload_to="skins", null= True)
+    
+
+
+    def __str__(self):
+        return self.nombreSkin2
+
+#MODELO PRODUCTO CSGO
+
+class Producto3(models.Model):
+    precio3 = models.IntegerField(verbose_name="Precio")
+    nombreSkin3 = models.CharField(max_length=50,verbose_name="Nombre de la skin")
+    nombreUsuario3 = models.CharField(max_length=50,verbose_name="Nombre de usuario ")
+    imagenSkin3 = models.ImageField(upload_to="skins", null= True)
+    
+
+
+    def __str__(self):
+        return self.nombreSkin3
+
+
 

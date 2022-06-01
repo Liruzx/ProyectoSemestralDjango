@@ -16,7 +16,41 @@
   <div class="row">
     <div class="container text-center">
 
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      {% for p in productos3 %}
+    <div class="col-md-4 text-center">
+      <div class="card " style="margin-top: 15px;">
+
+        {% if p.imagenSkin3 %}
+        <img src="{{p.imagenSkin3.url}}" class="card-img-top" alt="sin imagen" style="height: 230px">
+        {% endif %}
+        <div class="card-body">
+
+          <h5 class="card-title" style="text-align: center;">{{p.nombreSkin3}}</h5>
+          <p class="card-text" style="text-align: center;">{{p.nombreUsuario3}}</p>
+          <p class="card-text" style="text-align: center;">{{p.precio3}} CLP</p>
+          <a href="{% url 'chatCompra' %}" class="btn btn-dark">Comprar</a>
+
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--<div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card" style="margin-top: 15px">
             <img src="{% static 'GGEZ/img/ak-47.jpg' %}" class="card-img-top" alt="..." style="height: 230px">
@@ -55,7 +89,15 @@
         </div>
 
       </div>
-    </div>
+    </div>-->
+
+
+
+
+
+
+
+
 
   </div>
 </div>
