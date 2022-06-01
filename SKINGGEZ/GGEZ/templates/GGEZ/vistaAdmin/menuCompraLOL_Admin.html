@@ -1,0 +1,33 @@
+{% extends 'GGEZ/plantillaCompra.html'%}
+
+
+{% load static %}
+
+
+{% block contenido %}
+
+<div class="container">
+  <div class="row">
+
+    {% for p in productos %}
+    <div class="col-md-4 text-center">
+      <div class="card " style="margin-top: 15px;">
+
+        {% if p.imagenSkin %}
+        <img src="{{p.imagenSkin.url}}" class="card-img-top" alt="sin imagen" style="height: 230px">
+        {% endif %}
+        <div class="card-body">
+
+          <h5 class="card-title" style="text-align: center;">{{p.nombreSkin}}</h5>
+          <p class="card-text" style="text-align: center;">{{p.nombreUsuario}}</p>
+          <p class="card-text" style="text-align: center;">{{p.precio}} CLP</p>
+          <a href="{% url 'chatCompra' %}" class="btn btn-dark">Comprar</a>
+          <a href="{% url 'eliminarProducto' p.id %}" class="btn btn-danger">Eliminar</a>
+
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

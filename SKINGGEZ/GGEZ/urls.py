@@ -16,5 +16,18 @@ urlpatterns = [
     path('recuperContrasenia/',recuperarContrasenia,name="recuperarContrasenia"),
     path('cambioDeContrasenia/',cambioDeContrasenia,name="cambioDeContrasenia"),
     path('mensajeCambioDeContrasenia/',mensajeCambioDeContrasenia,name="mensajeCambioDeContrasenia"),
+
+    path('eliminarProducto/<id>/',eliminarProducto,name="eliminarProducto"),
+    
+    path('eliminarProducto2/<id>/',eliminarProducto2,name="eliminarProducto2"),
+    
+    path('eliminarProducto3/<id>/',eliminarProducto3,name="eliminarProducto3"),
+
+    #URL VISTAS DE ADMIN
+
+    path('menuCompraLOL_Admin/',menuCompraLOL_Admin,name="menuCompraLOL_Admin"),
+    path('menuCompraVALO_Admin/',menuCompraVALO_Admin,name="menuCompraVALO_Admin"),
+    path('menuCompraCSGO_Admin/',menuCompraCSGO_Admin,name="menuCompraCSGO_Admin"),
+
     
 ]
