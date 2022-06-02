@@ -60,7 +60,7 @@
         </div>
         <div class="offcanvas-body">
           
-          <p>Nombre de usuario:{{request.session.nombreUsuario}} </p>
+          <p>Nombre de usuario: {{request.session.nombreUsuario}} </p>
           {% for user in user %}
             {% if user.nombreUsuario == request.session.nombreUsuario %}
                 <p>Correo: {{user.correo}}</p>

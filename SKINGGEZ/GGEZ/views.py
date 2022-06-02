@@ -19,7 +19,7 @@ def paginaPrincipal(request):
 
             return render(request,'GGEZ/index.html',contexto)
         except Usuario.DoesNotExist as o:
-            messages.success(request, 'Nombre de usuario o Contraseña no es correcto')
+            messages.success(request, 'Nombre de usuario o Contraseña son incorrectos')
     
             
 
@@ -54,11 +54,14 @@ def Registro(request):
 
 def index(request):
     
-    
+    user = Usuario.objects.all()
+    contexto = {
+                'user':user
+            }
     
 
     
-    return render(request,'GGEZ/index.html')
+    return render(request,'GGEZ/index.html',contexto)
 
 def menuCompraLOL(request):
 
