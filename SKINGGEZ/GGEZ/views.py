@@ -12,7 +12,12 @@ def paginaPrincipal(request):
         try:
             detalleUsuario=Usuario.objects.get(nombreUsuario=request.POST.get('nombreUsuario'),contra =request.POST.get('contra'))
             request.session['nombreUsuario']= detalleUsuario.nombreUsuario
-            return render(request,'GGEZ/index.html')
+            user = Usuario.objects.all()
+            contexto = {
+                'user':user
+            }
+
+            return render(request,'GGEZ/index.html',contexto)
         except Usuario.DoesNotExist as o:
             messages.success(request, 'Nombre de usuario o Contraseña no es correcto')
     
@@ -48,6 +53,7 @@ def Registro(request):
 
 
 def index(request):
+    
     
     
 

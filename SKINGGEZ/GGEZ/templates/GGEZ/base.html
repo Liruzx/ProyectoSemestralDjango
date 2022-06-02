@@ -59,8 +59,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
+          
           <p>Nombre de usuario:{{request.session.nombreUsuario}} </p>
-          <p>Correo: {{correo}}</p>
+          {% for user in user %}
+            {% if user.nombreUsuario == request.session.nombreUsuario %}
+                <p>Correo: {{user.correo}}</p>
+                <p>contraseña: {{user.contra}}</p>
+            {% endif %}
+          {% endfor %}
+         
           
           <button class="btn btn-secondary" type="button">Editar</button>
           <a href="{% url 'paginaPrincipal' %}"><button class="btn btn-secondary"  type="button">Cerrar sesion</button></a>
