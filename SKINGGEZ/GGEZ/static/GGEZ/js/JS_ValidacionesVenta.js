@@ -10,7 +10,7 @@ var form = document.getElementById("form");
 
 form.addEventListener("submit", e=>{
 
-    e.preventDefault();
+    
 
     let men = "";
     
@@ -51,7 +51,9 @@ form.addEventListener("submit", e=>{
 
 
     if(entrar){
+        e.preventDefault();
         mensaje.innerHTML = men
+        
         
     }else{
         mensaje.innerHTML = 'Registrado'

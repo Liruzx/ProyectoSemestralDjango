@@ -10,7 +10,7 @@ var men = document.getElementById("mensaje");
 
 form.addEventListener("submit", e=>{
 
-    e.preventDefault();
+    
 
     let men = "";
     let espacios = false;
@@ -110,6 +110,7 @@ form.addEventListener("submit", e=>{
 
 
     if(entrar){
+        e.preventDefault();
         mensaje.innerHTML = men
         
     }else{
