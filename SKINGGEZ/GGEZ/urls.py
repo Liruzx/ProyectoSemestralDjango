@@ -34,5 +34,15 @@ urlpatterns = [
     path('menuCompraVALO_Admin/',menuCompraVALO_Admin,name="menuCompraVALO_Admin"),
     path('menuCompraCSGO_Admin/',menuCompraCSGO_Admin,name="menuCompraCSGO_Admin"),
 
+    path('index_Admin/',index_Admin,name="index_Admin"),
+    
+    #URL VENTAS ADMIN
+
+    path('menuVentaLOL_Admin',menuVentaLOL_Admin,name="menuVentaLOL_Admin"),
+    path('menuVentaVALO_Admin',menuVentaVALO_Admin,name="menuVentaVALO_Admin"),
+    path('menuVentaCSGO_Admin',menuVentaCSGO_Admin,name="menuVentaCSGO_Admin"),
+
+    path('chatCompra_Admin',chatCompra_Admin,name="chatCompra_Admin")
+
     
 ]

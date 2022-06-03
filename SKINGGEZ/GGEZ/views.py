@@ -8,18 +8,41 @@ from django.contrib import messages
 
 
 def paginaPrincipal(request):
+    
+    
+
     if request.method == 'POST':
+       
         try:
             detalleUsuario=Usuario.objects.get(nombreUsuario=request.POST.get('nombreUsuario'),contra =request.POST.get('contra'))
+
             request.session['nombreUsuario']= detalleUsuario.nombreUsuario
             user = Usuario.objects.all()
             contexto = {
                 'user':user
             }
+            if request.POST.get('nombreUsuario') == "ELPEPE" and request.POST.get('contra') == "ELPEPE123":
 
-            return render(request,'GGEZ/index.html',contexto)
+                return render(request,'GGEZ/vistaAdmin/index_Admin.html',contexto)
+            else:
+
+                return render(request,'GGEZ/index.html',contexto)
+           
         except Usuario.DoesNotExist as o:
             messages.success(request, 'Nombre de usuario o Contraseña son incorrectos')
+    #elif request.method == 'POST':
+     #   try:
+      #      detalleUsuario=Usuario.objects.get(nombreUsuario=admin,contra = contraAdmin)
+       #     request.session['nombreUsuario']= detalleUsuario.nombreUsuario
+        #    user = Usuario.objects.all()
+         #   contexto = {
+          #      'user':user
+           # }
+
+            #return render(request,'GGEZ/vistaAdmin/menuCompraLOL_Admin.html',contexto)
+        #except Usuario.DoesNotExist as o:
+         #   messages.success(request, 'Nombre de usuario o Contraseña son incorrectos')
+    
     
             
 
@@ -174,10 +197,10 @@ def eliminarProducto (request, id):
     produ = Producto.objects.get(id=id)
     try:
         produ.delete()
-        messages.success(request,'Eliminado correctamente')
+        
     except:
         
-        messages.error(request,'Eliminado correctamente')
+        messages.error(request,'')
         
     return render(request,'GGEZ/vistaAdmin/menuCompraLOL_Admin.html')
 
@@ -185,10 +208,10 @@ def eliminarProducto2 (request, id):
     produ = Producto2.objects.get(id=id)
     try:
         produ.delete()
-        messages.success(request,'Eliminado correctamente')
+       
     except:
         
-        messages.error(request,'Eliminado correctamente')
+        messages.error(request,'')
         
     return render(request,'GGEZ/vistaAdmin/menuCompraVALO_Admin.html')
 
@@ -196,10 +219,10 @@ def eliminarProducto3 (request, id):
     produ = Producto3.objects.get(id=id)
     try:
         produ.delete()
-        messages.success(request,'Eliminado correctamente')
+        messages.success(request,'')
     except:
         
-        messages.error(request,'Eliminado correctamente')
+        messages.error(request,'')
         
     return render(request,'GGEZ/vistaAdmin/menuCompraCSGO_Admin.html')
 
@@ -270,3 +293,83 @@ def menuCompraCSGO_Admin(request):
     }
 
     return render(request,'GGEZ/vistaAdmin/menuCompraCSGO_Admin.html',contexto)
+
+def index_Admin(request):
+
+    user = Usuario.objects.all()
+    contexto = {
+                'user':user
+            }
+
+    return render(request,'GGEZ/vistaAdmin/index_Admin.html',contexto)
+
+
+def menuVentaLOL_Admin(request):
+
+    if request.POST:
+        produ = Producto()
+        produ.precio = request.POST.get('precio') 
+        produ.nombreSkin = request.POST.get('nombreSkin')       
+        produ.nombreUsuario = request.POST.get('nombreUsuario')  
+        produ.imagenSkin = request.FILES.get('imagenSkin')
+
+        try:
+            produ.save()
+            messages.success(request, 'Se ha publicado Correctamente')
+        except:
+            
+             messages.success =(request, 'No se ha publicado correctamente')
+ 
+
+
+    return render(request, 'GGEZ/vistaAdmin/menuVentaLOL_Admin.html')
+
+
+def menuVentaVALO_Admin(request):
+
+    if request.POST:
+        produ = Producto2()
+        produ.precio2 = request.POST.get('precio') 
+        produ.nombreSkin2 = request.POST.get('nombreSkin')       
+        produ.nombreUsuario2 = request.POST.get('nombreUsuario')  
+        produ.imagenSkin2 = request.FILES.get('imagenSkin')
+
+        try:
+            produ.save()
+            messages.success(request, 'Se ha publicado Correctamente')
+        except:
+            
+             messages.success =(request, 'No se ha publicado correctamente')
+
+
+
+    return render(request, 'GGEZ/vistaAdmin/menuVentaVALO_Admin.html')
+
+
+def menuVentaCSGO_Admin(request):
+
+    if request.POST:
+        produ = Producto3()
+        produ.precio3 = request.POST.get('precio') 
+        produ.nombreSkin3 = request.POST.get('nombreSkin')       
+        produ.nombreUsuario3 = request.POST.get('nombreUsuario')  
+        produ.imagenSkin3 = request.FILES.get('imagenSkin')
+
+        try:
+            produ.save()
+            messages.success(request, 'Se ha publicado Correctamente')
+        except:
+            
+             messages.success =(request, 'No se ha publicado correctamente')
+
+
+
+
+
+
+    return render(request, 'GGEZ/vistaAdmin/menuVentaCSGO_Admin.html')
+
+
+
+def chatCompra_Admin(request):
+    return render(request, 'GGEZ/vistaAdmin/chatCompra.html')
