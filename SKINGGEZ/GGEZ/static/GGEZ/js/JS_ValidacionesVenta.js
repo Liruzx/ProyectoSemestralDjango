@@ -51,8 +51,10 @@ form.addEventListener("submit", e=>{
 
 
     if(entrar){
+        e.preventDefault();
         mensaje.innerHTML = men
         e.preventDefault();
+        
         
     }else{
         mensaje.innerHTML = 'Registrado'
