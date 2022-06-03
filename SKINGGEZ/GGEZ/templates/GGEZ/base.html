@@ -65,11 +65,12 @@
             {% if user.nombreUsuario == request.session.nombreUsuario %}
                 <p>Correo: {{user.correo}}</p>
                 <p>contraseña: {{user.contra}}</p>
-            {% endif %}
-          {% endfor %}
+            
          
           
-          <button class="btn btn-secondary" type="button">Editar</button>
+                <a href="{% url 'editarUsuario' user.id%}"><button class="btn btn-secondary" type="button">Editar</button></a>
+            {% endif %}
+          {% endfor %}
           <a href="{% url 'paginaPrincipal' %}"><button class="btn btn-secondary"  type="button">Cerrar sesion</button></a>
         </div>
       </div>

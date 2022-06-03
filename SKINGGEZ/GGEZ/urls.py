@@ -23,6 +23,11 @@ urlpatterns = [
     
     path('eliminarProducto3/<id>/',eliminarProducto3,name="eliminarProducto3"),
 
+    
+    path('editarUsuario/<id>/',editarUsuario,name="editarUsuario"),
+    #path('actualizarUsuario/<id>/',actualizarUsuario,name="actualizarUsuario"),
+    
+
     #URL VISTAS DE ADMIN
 
     path('menuCompraLOL_Admin/',menuCompraLOL_Admin,name="menuCompraLOL_Admin"),

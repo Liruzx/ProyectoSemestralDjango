@@ -204,6 +204,39 @@ def eliminarProducto3 (request, id):
     return render(request,'GGEZ/vistaAdmin/menuCompraCSGO_Admin.html')
 
 
+def editarUsuario (request, id):
+
+    user = Usuario.objects.get(id=id)
+    form = formRegistro(request.POST, instance=user)
+    if form.is_valid():
+        form.save()
+    user = Usuario.objects.all()
+    
+    
+
+    
+    return render(request,'GGEZ/editarUsuario.html')
+
+    #usuario = Usuario.objects.filter(id=id).first()
+
+    #form = formRegistro(instance=usuario)
+    
+
+    #return render(request,'GGEZ/editarUsuario.html',{"form" : form, 'usuario':usuario})
+
+#def actualizarUsuario (request, id):
+ #   user = Usuario.objects.get(id=id)
+  #  form = formRegistro(request.POST, instance=user)
+   # if form.is_valid():
+    #    form.save()
+    #user = Usuario.objects.all()
+    
+    
+
+    
+    #return redirect(to='index')
+
+
 
 #VISTAS DEL ADMIN
 
