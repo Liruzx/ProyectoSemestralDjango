@@ -64,14 +64,14 @@
           {% for user in user %}
             {% if user.nombreUsuario == request.session.nombreUsuario %}
                 <p>Correo: {{user.correo}}</p>
-                <p>contraseña: ******</p>
+                <p>Contraseña: ******</p>
             
          
           
                 <a href="{% url 'editarUsuario' user.id%}"><button class="btn btn-secondary" type="button">Editar</button></a>
             {% endif %}
           {% endfor %}
-          <a href="{% url 'paginaPrincipal' %}"><button class="btn btn-secondary"  type="button">Cerrar sesion</button></a>
+          <a href="{% url 'paginaPrincipal' %}"><button class="btn btn-secondary"  type="button">Cerrar sesión</button></a>
         </div>
       </div>
 
