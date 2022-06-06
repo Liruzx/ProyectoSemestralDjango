@@ -64,12 +64,12 @@
           {% for user in user %}
             {% if user.nombreUsuario == request.session.nombreUsuario %}
                 <p>Correo: {{user.correo}}</p>
-                <p>contraseña: *********</p>
+                <p>Contraseña: *********</p>
 
 
 
             
-                <p>El Usuario Admin no puede ser modificado</p>
+                <p>El Usuario Admin no puede ser modificado.</p>
           
                 <!--<a href="#"><button class="btn btn-secondary" type="button">Editar</button></a>-->
             {% endif %}
