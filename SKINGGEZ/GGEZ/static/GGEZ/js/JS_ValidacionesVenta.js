@@ -1,9 +1,8 @@
 
-var usser = document.getElementById("usser");
-var correo = document.getElementById("correo");
+var usser = document.getElementById("nombreUsuario");
 var precio = document.getElementById("precio");
-var skinname = document.getElementById("skinname");
-var men = document.getElementById("mensajeVALO");
+var skinname = document.getElementById("nombreSkin");
+var men = document.getElementById("mensaje");
 var form = document.getElementById("form");
 
 
@@ -20,13 +19,13 @@ form.addEventListener("submit", e=>{
     
 
 
-    //if (usserv.value.length < 1){
+    if (usser.value.length < 1){
 
-      //  mensajeVALO += "Debe ingresar una contraseña.<br>";
-       // entrar = true;
+        men += "Debe ingresar una contraseña.<br>";
+        entrar = true;
     
     
-    //}
+    }
 
 
     
@@ -51,7 +50,7 @@ form.addEventListener("submit", e=>{
 
 
     if(entrar){
-        e.preventDefault();
+       
         mensaje.innerHTML = men
         e.preventDefault();
         
