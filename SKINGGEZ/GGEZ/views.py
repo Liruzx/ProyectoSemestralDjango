@@ -201,8 +201,13 @@ def eliminarProducto (request, id):
     except:
         
         messages.error(request,'')
+
+    productos = Producto.objects.all()
+    contexto = {
+            'productos' : productos
+    }
         
-    return render(request,'GGEZ/vistaAdmin/menuCompraLOL_Admin.html')
+    return render(request,'GGEZ/vistaAdmin/menuCompraLOL_Admin.html',contexto)
 
 def eliminarProducto2 (request, id):
     produ = Producto2.objects.get(id=id)
@@ -212,8 +217,13 @@ def eliminarProducto2 (request, id):
     except:
         
         messages.error(request,'')
+    
+    productos2 = Producto2.objects.all()
+    contexto = {
+            'productos2' : productos2
+    }
         
-    return render(request,'GGEZ/vistaAdmin/menuCompraVALO_Admin.html')
+    return render(request,'GGEZ/vistaAdmin/menuCompraVALO_Admin.html',contexto)
 
 def eliminarProducto3 (request, id):
     produ = Producto3.objects.get(id=id)
@@ -223,8 +233,15 @@ def eliminarProducto3 (request, id):
     except:
         
         messages.error(request,'')
+
+    productos3 = Producto3.objects.all()
+    contexto = {
+            'productos3' : productos3
+    }
+
+    
         
-    return render(request,'GGEZ/vistaAdmin/menuCompraCSGO_Admin.html')
+    return render(request,'GGEZ/vistaAdmin/menuCompraCSGO_Admin.html',contexto)
 
 
 def editarUsuario (request, id):
