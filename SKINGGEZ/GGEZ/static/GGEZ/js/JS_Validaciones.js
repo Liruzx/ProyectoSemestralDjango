@@ -70,9 +70,9 @@ form.addEventListener("submit", e=>{
 
 
 
-    if (contra.value.length < 7 ){
+    if (contra.value.length < 5 ){
 
-        men += "Esta debe ser mayor a 7 caracteres.<br>";
+        men += "Esta debe ser mayor a 5 caracteres.<br>";
         entrar = true;
 
 
