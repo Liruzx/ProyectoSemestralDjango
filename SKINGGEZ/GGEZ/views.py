@@ -184,6 +184,8 @@ def chatCompra(request):
 
 
 
+
+
 def recuperarContrasenia(request):
     return render(request, 'GGEZ/recuperarContrasenia.html')
 
@@ -389,4 +391,4 @@ def menuVentaCSGO_Admin(request):
 
 
 def chatCompra_Admin(request):
-    return render(request, 'GGEZ/vistaAdmin/chatCompra.html')
+    return render(request, 'GGEZ/vistaAdmin/chatCompra_Admin.html')

@@ -70,9 +70,10 @@
         </div>
 
         <div class="footer">
-            <form action="send">
+            <form action="send" method="post" enctype="multipart/form-data" id="formulario">
+            {% csrf_token %}
             <input type="text" name="">
-            <button>Enviar</button>
+            <button type="submit">Enviar</button>
         </form>
 
             
@@ -82,4 +83,14 @@
 </div>
 </body>
 {% endif %}
+
+<script>
+    var form = document.getElementById("formulario");
+
+    form.addEventListener("Submit", e => {
+
+        e.preventDefault();
+        
+    })
+</script>
 </html>
