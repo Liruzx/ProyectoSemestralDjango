@@ -21,7 +21,7 @@ form.addEventListener("submit", e=>{
 
     if (usser.value.length < 1){
 
-        men += "Debe ingresar una contraseña.<br>";
+        men += "Debe ingresar un nombre de usuario.<br>";
         entrar = true;
     
     
