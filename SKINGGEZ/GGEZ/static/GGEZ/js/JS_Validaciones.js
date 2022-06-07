@@ -20,10 +20,10 @@ form.addEventListener("submit", e=>{
     let validar = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
-    if ( usuario.value.length < 7 ) {
+    if ( usuario.value.length < 5 ) {
 
 
-        men += "Debe ingresar un usuario valido, y debe tener mas de 7 caracteres.<br>";
+        men += "Debe ingresar un usuario valido, y debe tener mas de 5 caracteres.<br>";
         entrar = true;
 
     } 
