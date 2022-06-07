@@ -107,22 +107,6 @@ Insert into ETESECH.GGEZ_PRODUCTO3 (ID,PRECIO3,NOMBRESKIN3,NOMBREUSUARIO3,IMAGEN
 --------------------------------------------------------
 --  DDL for Index SYS_C008006
 --------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   CREATE UNIQUE INDEX "ETESECH"."SYS_C008006" ON "ETESECH"."GGEZ_USUARIO" ("ID") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
