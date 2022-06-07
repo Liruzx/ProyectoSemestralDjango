@@ -69,11 +69,32 @@
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 REM INSERTING into ETESECH.GGEZ_USUARIO
 SET DEFINE OFF;
 Insert into ETESECH.GGEZ_USUARIO (ID,NOMBREUSUARIO,CORREO,FECHANAC,CONTRA) values ('21','ELPEPE','elpepe@gmail.com','12/12/02','ELPEPE123');
 Insert into ETESECH.GGEZ_USUARIO (ID,NOMBREUSUARIO,CORREO,FECHANAC,CONTRA) values ('1','hola123','hola@hola.cl','01/01/22','hola123.');
-Insert into ETESECH.GGEZ_USUARIO (ID,NOMBREUSUARIO,CORREO,FECHANAC,CONTRA) values ('41','admin','admin@gmail.com','01/01/22','admin');
+Insert into ETESECH.GGEZ_USUARIO (ID,NOMBREUSUARIO,CORREO,FECHANAC,CONTRA) values ('41','HomeroChino','dou@gmail.com','01/01/22','cerveza123.');
 REM INSERTING into ETESECH.GGEZ_PRODUCTO
 SET DEFINE OFF;
 Insert into ETESECH.GGEZ_PRODUCTO (ID,PRECIO,NOMBRESKIN,NOMBREUSUARIO,IMAGENSKIN) values ('43','6000','Soraka Pijama Estelar','holaNuevo','skins/sorakaPijamaEstelar_2QB8GAo_Qmwd3yA.jpg');
@@ -86,6 +107,21 @@ Insert into ETESECH.GGEZ_PRODUCTO3 (ID,PRECIO3,NOMBRESKIN3,NOMBREUSUARIO3,IMAGEN
 --------------------------------------------------------
 --  DDL for Index SYS_C008006
 --------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   CREATE UNIQUE INDEX "ETESECH"."SYS_C008006" ON "ETESECH"."GGEZ_USUARIO" ("ID") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
