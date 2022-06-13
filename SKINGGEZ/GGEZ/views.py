@@ -248,6 +248,7 @@ def eliminarProducto3 (request, id):
 
 def editarUsuario (request, id):
 
+
     user = Usuario.objects.get(id=id)
     form = formRegistro(request.POST, instance=user)
     if form.is_valid():
