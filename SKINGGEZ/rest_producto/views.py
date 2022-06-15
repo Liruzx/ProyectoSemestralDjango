@@ -4,8 +4,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
-from GGEZ.models import Producto
-from .serializers import ProductoSerializer
+from GGEZ.models import Producto,Producto2,Producto3
+from .serializers import ProductoSerializer, ProductoSerializer2,ProductoSerializer3
 
 
 # Create your views here.
@@ -31,6 +31,49 @@ def lista_productos(request):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET','POST'])
+def lista_productos2(request):
+    """
+     Lista de skins 2 ahre
+
+    """
+
+    if request.method == 'GET':
+        producto = Producto2.objects.all()
+        serializer = ProductoSerializer2(producto, many= True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = ProductoSerializer2(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+@api_view(['GET','POST'])
+def lista_productos3(request):
+    """
+     Lista de skins 2 ahre
+
+    """
+
+    if request.method == 'GET':
+        producto = Producto3.objects.all()
+        serializer = ProductoSerializer3(producto, many= True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = ProductoSerializer3(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 @api_view(['GET','PUT','DELETE'])
 
@@ -52,6 +95,60 @@ def detalle_producto(request, id):
     if request.method == 'PUT':
         data = JSONParser().parse(request)
         serializer = ProductoSerializer(producto, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        producto.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET','PUT','DELETE'])
+def detalle_producto2(request, id):
+    """
+        get, update , delete de una skin de la 2 en particular ahre
+
+    """
+
+    try:
+        producto = Producto2.objects.get(id=id)
+    except Producto.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = ProductoSerializer2(producto)
+        return Response(serializer.data)
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = ProductoSerializer2(producto, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        producto.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET','PUT','DELETE'])
+def detalle_producto3(request, id):
+    """
+        get, update , delete de una skin de la 2 en particular ahre
+
+    """
+
+    try:
+        producto = Producto3.objects.get(id=id)
+    except Producto.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = ProductoSerializer3(producto)
+        return Response(serializer.data)
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = ProductoSerializer3(producto, data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
