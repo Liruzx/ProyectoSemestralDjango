@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'GGEZ',
     'rest_producto',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,25 @@ WSGI_APPLICATION = 'SKINGGEZ.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+
+        'rest_framework.authentication.TokenAuthentication',
+
+
+    ],
+
+
+
+}
+
+
+
+
+
+
 
 DATABASES = {
     'default': {

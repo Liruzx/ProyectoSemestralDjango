@@ -1,6 +1,6 @@
 from django.urls import URLPattern, path
 from rest_producto.views import lista_productos,detalle_producto, lista_productos2,detalle_producto2,lista_productos3,detalle_producto3
-
+from rest_producto.viewsLogin import login
 
 urlpatterns = [
     
@@ -17,6 +17,9 @@ urlpatterns = [
 
     path('lista_productos3', lista_productos3,name="lista_productos3"),
     path('detalle_producto3/<id>',detalle_producto3, name="detalle_producto3"),
+
+
+    path('login/',login, name="login"),
 
 
 

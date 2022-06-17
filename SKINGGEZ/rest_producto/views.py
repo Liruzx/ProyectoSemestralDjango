@@ -1,17 +1,20 @@
 from django.shortcuts import render
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from GGEZ.models import Producto,Producto2,Producto3
 from .serializers import ProductoSerializer, ProductoSerializer2,ProductoSerializer3
 
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 
 # Create your views here.
 @csrf_exempt
 @api_view(['GET','POST'])
-
+@permission_classes((IsAuthenticated,))
 def lista_productos(request):
     """
      Lista de productos 1
@@ -32,6 +35,7 @@ def lista_productos(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET','POST'])
+@permission_classes((IsAuthenticated,))
 def lista_productos2(request):
     """
      Lista de skins 2 ahre
@@ -54,6 +58,7 @@ def lista_productos2(request):
 
 
 @api_view(['GET','POST'])
+@permission_classes((IsAuthenticated,))
 def lista_productos3(request):
     """
      Lista de skins 2 ahre
@@ -76,7 +81,7 @@ def lista_productos3(request):
 
 
 @api_view(['GET','PUT','DELETE'])
-
+@permission_classes((IsAuthenticated,))
 
 
 def detalle_producto(request, id):
@@ -106,6 +111,7 @@ def detalle_producto(request, id):
 
 
 @api_view(['GET','PUT','DELETE'])
+@permission_classes((IsAuthenticated,))
 def detalle_producto2(request, id):
     """
         get, update , delete de una skin de la 2 en particular ahre
@@ -133,6 +139,7 @@ def detalle_producto2(request, id):
 
 
 @api_view(['GET','PUT','DELETE'])
+@permission_classes((IsAuthenticated,))
 def detalle_producto3(request, id):
     """
         get, update , delete de una skin de la 2 en particular ahre
