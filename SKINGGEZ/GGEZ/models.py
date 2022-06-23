@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
@@ -21,7 +22,7 @@ class Producto(models.Model):
     precio = models.IntegerField(verbose_name="Precio")
     nombreSkin = models.CharField(max_length=50,verbose_name="Nombre de la skin")
     nombreUsuario = models.CharField(max_length=50,verbose_name="Nombre de usuario ")
-    imagenSkin = models.ImageField(upload_to="skins", null= True , blank=True)
+    imagenSkin = models.ImageField(upload_to="skins", null= True )
     
 
 
@@ -52,6 +53,14 @@ class Producto3(models.Model):
 
     def __str__(self):
         return self.nombreSkin3
+
+
+class Juego(models.Model):
+    nombreJuego = models.CharField(max_length=50,verbose_name="Nombre del juego")
+    imagenJuego = models.ImageField(upload_to="skins",null = True)
+
+    def __str__(self):
+        return self.nombreJuego
 
 
 

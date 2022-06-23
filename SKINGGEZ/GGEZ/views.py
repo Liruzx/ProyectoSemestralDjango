@@ -1,5 +1,6 @@
+from re import template
 from django.shortcuts import redirect, render,get_object_or_404
-from .models import Usuario, Producto,Producto2,Producto3
+from .models import  Usuario, Producto,Producto2,Producto3,Juego
 from .forms import  formRegistro, formEditar
 from django.contrib import messages
 
@@ -322,9 +323,20 @@ def menuCompraCSGO_Admin(request):
 def index_Admin(request):
 
     user = Usuario.objects.all()
+    juego = Juego.objects.all()
+   
     contexto = {
-                'user':user
-            }
+                'user':user , 'juego':juego
+                            }
+
+    
+
+    
+    
+
+    
+    
+    
 
     return render(request,'GGEZ/vistaAdmin/index_Admin.html',contexto)
 

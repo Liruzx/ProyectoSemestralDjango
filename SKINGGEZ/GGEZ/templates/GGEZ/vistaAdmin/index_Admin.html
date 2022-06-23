@@ -57,7 +57,6 @@
 
 
 <!--JUEGOS AHRE-->
-
 <div id="juegos">
     <div class="container-md p-5">
         <div class="row pt-5">
@@ -66,7 +65,28 @@
             </div>
         </div>
         <div class="row">
+            
+            {% for j in juego %}
             <div class="col-sm-4 text-center">
+                
+                <div class="card w-100 card-border ">
+                    
+                    {% if j.imagenJuego %}
+                    <img src="{{j.imagenJuego.url}}" class="card-img" alt="...">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{j.nombreJuego}}</h5>
+                        <p class="card"></p>
+                        <a href="{% url 'menuCompraLOL_Admin' %}" class="btn btn-dark m-1">Comprar</a>
+                        <a href="{% url 'menuVentaLOL_Admin' %}" class="btn btn-dark m-1">Vender</a>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+            
+
+            <!--<div class="col-sm-4 text-center">
                 <div class="card w-100 card-border ">
                     <img src="{% static 'GGEZ/img/LOL.png' %}" class="card-img" alt="...">
                     <div class="card-body">
@@ -77,6 +97,12 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
             <div class="col-sm-4 text-center">
                 <div class="card w-100 card-border">
                     <img src="{% static 'GGEZ/img/VALO.jpg' %}" class="card-img" alt="...">
@@ -98,7 +124,7 @@
                         <a href="{% url 'menuVentaCSGO_Admin' %}" class="btn btn-dark m-1">Vender</a>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="col-sm-12"> 
             <h3 class="juegos" ></h3>
@@ -110,6 +136,7 @@
 
     </div>
 </div>
+
 
 
 
