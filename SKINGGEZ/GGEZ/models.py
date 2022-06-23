@@ -63,4 +63,22 @@ class Juego(models.Model):
         return self.nombreJuego
 
 
+class Juego2(models.Model):
+    nombreJuego2 = models.CharField(max_length=50,verbose_name="Nombre del juego")
+    imagenJuego2 = models.ImageField(upload_to="skins",null = True)
+
+    def __str__(self):
+        return self.nombreJuego2
+
+
+class Juego3(models.Model):
+    nombreJuego3 = models.CharField(max_length=50,verbose_name="Nombre del juego")
+    imagenJuego3 = models.ImageField(upload_to="skins",null = True)
+
+    def __str__(self):
+        return self.nombreJuego3
+
+
+
+
 

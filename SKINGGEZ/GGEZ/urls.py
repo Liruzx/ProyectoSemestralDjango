@@ -42,7 +42,13 @@ urlpatterns = [
     path('menuVentaVALO_Admin',menuVentaVALO_Admin,name="menuVentaVALO_Admin"),
     path('menuVentaCSGO_Admin',menuVentaCSGO_Admin,name="menuVentaCSGO_Admin"),
 
-    path('chatCompra_Admin',chatCompra_Admin,name="chatCompra_Admin")
+    path('chatCompra_Admin',chatCompra_Admin,name="chatCompra_Admin"),
+
+    path('bloquearUsuario',bloquear,name="bloquear"),
+
+    path('editarJuego/<id>/',editarJuego,name="editarJuego"),
+    path('editarJuego2/<id>/',editarJuego2,name="editarJuego2"),
+    path('editarJuego3/<id>/',editarJuego3,name="editarJuego3"),
 
     
 ]

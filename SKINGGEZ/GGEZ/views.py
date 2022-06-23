@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import redirect, render,get_object_or_404
-from .models import  Usuario, Producto,Producto2,Producto3,Juego
-from .forms import  formRegistro, formEditar
+from .models import Usuario, Producto,Producto2,Producto3,Juego,Juego2, Juego3
+from .forms import  formRegistro, formEditar,formEditarJuego,formEditarJuego2,formEditarJuego3
 from django.contrib import messages
 
 # Create your views here.
@@ -24,7 +24,7 @@ def paginaPrincipal(request):
             }
             if request.POST.get('nombreUsuario') == "ELPEPE" and request.POST.get('contra') == "ELPEPE123":
 
-                return render(request,'GGEZ/vistaAdmin/index_Admin.html',contexto)
+                return redirect(to='index_Admin')
             else:
 
                 return render(request,'GGEZ/index.html',contexto)
@@ -324,9 +324,11 @@ def index_Admin(request):
 
     user = Usuario.objects.all()
     juego = Juego.objects.all()
+    juego2 = Juego2.objects.all()
+    juego3 = Juego3.objects.all()
    
     contexto = {
-                'user':user , 'juego':juego
+                'user':user , 'juego':juego, 'juego2':juego2, 'juego3':juego3
                             }
 
     
@@ -412,3 +414,63 @@ def menuVentaCSGO_Admin(request):
 
 def chatCompra_Admin(request):
     return render(request, 'GGEZ/vistaAdmin/chatCompra_Admin.html')
+
+
+def bloquear(request):
+
+    user = Usuario.objects.all()
+
+
+
+    contexto = {
+        'user':user
+    }
+
+
+    return render(request, 'GGEZ/vistaAdmin/bloquearUsuario.html',contexto)
+
+
+def editarJuego(request,id):
+     
+    juego = Juego.objects.get(id=id)
+    form = formEditarJuego(request.POST, instance=juego)
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Editado con exito.')
+        
+    juego = Juego.objects.all()
+    
+
+
+    return render(request,'GGEZ/vistaAdmin/editarJuego.html')
+
+
+
+
+def editarJuego2(request,id):
+
+    juego = Juego2.objects.get(id=id)
+    form = formEditarJuego2(request.POST, instance=juego)
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Editado con exito.')
+        
+    juego = Juego2.objects.all()
+    
+
+
+    return render(request,'GGEZ/vistaAdmin/editarJuego2.html')
+
+def editarJuego3(request,id):
+
+    juego = Juego3.objects.get(id=id)
+    form = formEditarJuego3(request.POST, instance=juego)
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Editado con exito.')
+        
+    juego = Juego3.objects.all()
+    
+
+
+    return render(request,'GGEZ/vistaAdmin/editarJuego3.html')
