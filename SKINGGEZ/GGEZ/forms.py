@@ -7,3 +7,9 @@ class formRegistro(forms.ModelForm):
         model = Usuario
         fields = '__all__'
 
+
+class formEditar(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nombreUsuario']
+

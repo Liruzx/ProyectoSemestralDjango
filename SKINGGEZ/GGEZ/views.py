@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render,get_object_or_404
 from .models import Usuario, Producto,Producto2,Producto3
-from .forms import formRegistro
+from .forms import  formRegistro, formEditar
 from django.contrib import messages
 
 # Create your views here.
@@ -248,11 +248,16 @@ def eliminarProducto3 (request, id):
 
 def editarUsuario (request, id):
 
+    
+
+
 
     user = Usuario.objects.get(id=id)
-    form = formRegistro(request.POST, instance=user)
+    form = formEditar(request.POST, instance=user)
     if form.is_valid():
         form.save()
+        messages.success(request,'Editado con exito.')
+        messages.success(request,'Inicie Sesion nuevamente.')
     user = Usuario.objects.all()
     
     
