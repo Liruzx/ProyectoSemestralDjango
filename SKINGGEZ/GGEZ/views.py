@@ -341,6 +341,8 @@ def index_Admin(request):
     return render(request,'GGEZ/vistaAdmin/index_Admin.html',contexto)
 
 
+
+
 def menuVentaLOL_Admin(request):
 
     if request.POST:
