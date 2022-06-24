@@ -8,7 +8,7 @@ from django.db import models
 
 class Usuario(models.Model):
     nombreUsuario = models.CharField(max_length=50 , unique=True ,verbose_name="Nombre de usuario")
-    correo = models.CharField(max_length=50,verbose_name="Correo")
+    correo = models.CharField(max_length=50,unique=True,verbose_name="Correo")
     fechaNac = models.CharField(max_length=50,verbose_name="Fecha de nacimiento")
     contra = models.CharField(max_length=50,verbose_name="Contraseña")
 
