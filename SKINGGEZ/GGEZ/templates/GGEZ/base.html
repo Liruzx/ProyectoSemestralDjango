@@ -60,15 +60,18 @@
         </div>
         <div class="offcanvas-body">
           
-          <p>Nombre de usuario: {{request.session.nombreUsuario}} </p>
+          <!--<p>Nombre de usuario: {{request.session.nombreUsuario}} </p>-->
+
           {% for user in user %}
             {% if user.nombreUsuario == request.session.nombreUsuario %}
-                <p>Correo: {{user.correo}}</p>
-                <p>Contraseña: ******</p>
+                <p>Nombre de usuario: {{request.session.nombreUsuario}}  <a href="{% url 'editarUsuario' user.id%}"><button class="btn btn-secondary" type="button">Editar</button></a> </p>
+                <p>Correo: {{user.correo}} <a href="{% url 'editarCorreo' user.id%}"><button class="btn btn-secondary" type="button">Editar</button></a></p>
+                <p>Fecha nacimiento: {{user.fechaNac}} <a href="{% url 'editarFecha' user.id%}"><button class="btn btn-secondary" type="button">Editar</button></a></p>
+                <p>Contraseña: ****** <a href="{% url 'editarContra' user.id%}"><button class="btn btn-secondary" type="button">Editar</button></a></p>
             
          
           
-                <a href="{% url 'editarUsuario' user.id%}"><button class="btn btn-secondary" type="button">Editar</button></a>
+                
             {% endif %}
           {% endfor %}
           <a href="{% url 'paginaPrincipal' %}"><button class="btn btn-secondary"  type="button">Cerrar sesión</button></a>

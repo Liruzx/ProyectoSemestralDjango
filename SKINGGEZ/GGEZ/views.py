@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import redirect, render,get_object_or_404
 from .models import Usuario, Producto,Producto2,Producto3,Juego,Juego2, Juego3
-from .forms import  formRegistro, formEditar,formEditarJuego,formEditarJuego2,formEditarJuego3
+from .forms import  formRegistro, formEditar,formEditarJuego,formEditarJuego2,formEditarJuego3,formEditarCorreo, formEditarFecha,formEditarContra
 from django.contrib import messages
 
 # Create your views here.
@@ -57,7 +57,8 @@ def Registro(request):
         messages.success(request, 'Usuario registrado correctamente.')
         form = formRegistro()
     else:
-        messages.error(request, 'Error al registrar usuario. Revise los datos.')
+        messages.success(request, 'Error al registrar usuario.')
+        messages.success(request, '1-Datos ya existentes o Falta de datos')
     contexto = {'form': form }
         
     return render(request,'GGEZ/Registro.html',contexto)
@@ -265,6 +266,44 @@ def editarUsuario (request, id):
 
     
     return render(request,'GGEZ/editarUsuario.html')
+
+
+def editarCorreo (request, id):
+
+    user = Usuario.objects.get(id=id)
+    form = formEditarCorreo(request.POST, instance=user)
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Editado con exito.')
+        messages.success(request,'Inicie Sesion nuevamente.')
+    user = Usuario.objects.all()
+    
+    return render(request,'GGEZ/editarCorreo.html')
+
+def editarFecha (request, id):
+
+    user = Usuario.objects.get(id=id)
+    form = formEditarFecha(request.POST, instance=user)
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Editado con exito.')
+        messages.success(request,'Inicie Sesion nuevamente.')
+    user = Usuario.objects.all()
+    
+    return render(request,'GGEZ/editarFecha.html')
+
+
+def editarContra (request, id):
+
+    user = Usuario.objects.get(id=id)
+    form = formEditarContra(request.POST, instance=user)
+    if form.is_valid():
+        form.save()
+        messages.success(request,'Editado con exito.')
+        messages.success(request,'Inicie Sesion nuevamente.')
+    user = Usuario.objects.all()
+    
+    return render(request,'GGEZ/editarContra.html')
 
     #usuario = Usuario.objects.filter(id=id).first()
 

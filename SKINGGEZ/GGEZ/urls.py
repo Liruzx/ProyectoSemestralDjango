@@ -25,6 +25,9 @@ urlpatterns = [
 
     
     path('editarUsuario/<id>/',editarUsuario,name="editarUsuario"),
+    path('editarCorreo/<id>/',editarCorreo,name="editarCorreo"),
+    path('editarFecha/<id>/',editarFecha,name="editarFecha"),
+    path('editarContra/<id>/',editarContra,name="editarContra"),
     #path('actualizarUsuario/<id>/',actualizarUsuario,name="actualizarUsuario"),
     
 

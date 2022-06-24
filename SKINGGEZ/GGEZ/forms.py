@@ -1,4 +1,4 @@
-from dataclasses import fields
+from dataclasses import field, fields
 from django import forms
 from .models import Usuario, Producto,Juego,Juego2,Juego3
 
@@ -12,6 +12,24 @@ class formEditar(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = ['nombreUsuario']
+
+class formEditarCorreo(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['correo']
+
+class formEditarFecha(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['fechaNac']
+
+class formEditarContra(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['contra']
+
+
+
 
 class formEditarJuego(forms.ModelForm):
     class Meta:
