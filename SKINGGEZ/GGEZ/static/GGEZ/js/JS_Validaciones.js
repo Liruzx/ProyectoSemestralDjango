@@ -65,7 +65,7 @@ form.addEventListener("submit", e=>{
         entrar = true;
         
 
-        return false;
+       
       }
 
 

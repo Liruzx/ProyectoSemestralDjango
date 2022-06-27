@@ -27,7 +27,7 @@ def paginaPrincipal(request):
                 return redirect(to='index_Admin')
             else:
 
-                return render(request,'GGEZ/index.html',contexto)
+                return redirect(to='index')
            
         except Usuario.DoesNotExist as o:
             messages.success(request, 'Nombre de usuario o Contraseña son incorrectos')
@@ -80,8 +80,13 @@ def Registro(request):
 def index(request):
     
     user = Usuario.objects.all()
+    juego = Juego.objects.all()
+    juego2 = Juego2.objects.all()
+    juego3 = Juego3.objects.all()
+   
+    
     contexto = {
-                'user':user
+                'user':user, 'juego':juego, 'juego2':juego2, 'juego3':juego3
             }
     
 
@@ -189,6 +194,9 @@ def chatCompra(request):
 
 
 def recuperarContrasenia(request):
+    
+
+
     return render(request, 'GGEZ/recuperarContrasenia.html')
 
 def cambioDeContrasenia(request):
@@ -250,10 +258,6 @@ def eliminarProducto3 (request, id):
 
 def editarUsuario (request, id):
 
-    
-
-
-
     user = Usuario.objects.get(id=id)
     form = formEditar(request.POST, instance=user)
     if form.is_valid():
@@ -281,6 +285,9 @@ def editarCorreo (request, id):
     return render(request,'GGEZ/editarCorreo.html')
 
 def editarFecha (request, id):
+
+
+
 
     user = Usuario.objects.get(id=id)
     form = formEditarFecha(request.POST, instance=user)
@@ -471,13 +478,28 @@ def bloquear(request):
 
 def editarJuego(request,id):
      
-    juego = Juego.objects.get(id=id)
-    form = formEditarJuego(request.POST, instance=juego)
-    if form.is_valid():
-        form.save()
-        messages.success(request,'Editado con exito.')
+    #juego = Juego.objects.get(id=id)
+    #form = formEditarJuego(request.POST)
+    #if form.is_valid():
         
-    juego = Juego.objects.all()
+     #   form.save()
+      #  messages.success(request,'Editado con exito.')
+        
+    #juego = Juego.objects.all()
+
+    if Juego.objects.get(id=id):
+
+        if request.POST:
+            juego = Juego.objects.get(id=id)   
+            juego.nombreJuego = request.POST.get('nombreJuego')  
+            juego.imagenJuego = request.FILES.get('imagenJuego')
+
+            try:
+                juego.save()
+                messages.success(request, 'Se ha editado correctamente')
+            except:
+                
+                messages.success =(request, 'No se editado correctamente')
     
 
 
@@ -488,28 +510,52 @@ def editarJuego(request,id):
 
 def editarJuego2(request,id):
 
-    juego = Juego2.objects.get(id=id)
-    form = formEditarJuego2(request.POST, instance=juego)
-    if form.is_valid():
-        form.save()
-        messages.success(request,'Editado con exito.')
+    #juego = Juego2.objects.get(id=id)
+    #form = formEditarJuego2(request.POST, instance=juego)
+    #if form.is_valid():
+     #   form.save()
+      #  messages.success(request,'Editado con exito.')
         
-    juego = Juego2.objects.all()
-    
+    #juego = Juego2.objects.all()
+    if Juego2.objects.get(id=id):
+
+        if request.POST:
+            juego = Juego2.objects.get(id=id)   
+            juego.nombreJuego2 = request.POST.get('nombreJuego2')  
+            juego.imagenJuego2 = request.FILES.get('imagenJuego2')
+
+            try:
+                juego.save()
+                messages.success(request, 'Se ha editado correctamente')
+            except:
+                
+                messages.success =(request, 'No se editado correctamente')
 
 
     return render(request,'GGEZ/vistaAdmin/editarJuego2.html')
 
 def editarJuego3(request,id):
 
-    juego = Juego3.objects.get(id=id)
-    form = formEditarJuego3(request.POST, instance=juego)
-    if form.is_valid():
-        form.save()
-        messages.success(request,'Editado con exito.')
+   # juego = Juego3.objects.get(id=id)
+    #form = formEditarJuego3(request.POST, instance=juego)
+    #if form.is_valid():
+     #   form.save()
+      #  messages.success(request,'Editado con exito.')
         
-    juego = Juego3.objects.all()
-    
+   # juego = Juego3.objects.all()
+    if Juego3.objects.get(id=id):
+
+        if request.POST:
+            juego = Juego3.objects.get(id=id)   
+            juego.nombreJuego3 = request.POST.get('nombreJuego3')  
+            juego.imagenJuego3 = request.FILES.get('imagenJuego3')
+
+            try:
+                juego.save()
+                messages.success(request, 'Se ha editado correctamente')
+            except:
+                
+                messages.success =(request, 'No se editado correctamente')
 
 
     return render(request,'GGEZ/vistaAdmin/editarJuego3.html')

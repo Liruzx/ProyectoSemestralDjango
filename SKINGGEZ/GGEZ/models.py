@@ -10,7 +10,7 @@ class Usuario(models.Model):
     nombreUsuario = models.CharField(max_length=50 , unique=True ,verbose_name="Nombre de usuario")
     correo = models.CharField(max_length=50,unique=True,verbose_name="Correo")
     fechaNac = models.CharField(max_length=50,verbose_name="Fecha de nacimiento")
-    contra = models.CharField(max_length=50,verbose_name="Contraseña")
+    contra = models.CharField(max_length=50, unique=True ,verbose_name="Contraseña")
 
     def __str__(self):
         return self.nombreUsuario
@@ -57,7 +57,7 @@ class Producto3(models.Model):
 
 class Juego(models.Model):
     nombreJuego = models.CharField(max_length=50,verbose_name="Nombre del juego")
-    imagenJuego = models.ImageField(upload_to="skins",null = True)
+    imagenJuego = models.ImageField(upload_to="juegos",null = True)
 
     def __str__(self):
         return self.nombreJuego
@@ -65,7 +65,7 @@ class Juego(models.Model):
 
 class Juego2(models.Model):
     nombreJuego2 = models.CharField(max_length=50,verbose_name="Nombre del juego")
-    imagenJuego2 = models.ImageField(upload_to="skins",null = True)
+    imagenJuego2 = models.ImageField(upload_to="juegos",null = True)
 
     def __str__(self):
         return self.nombreJuego2
@@ -73,7 +73,7 @@ class Juego2(models.Model):
 
 class Juego3(models.Model):
     nombreJuego3 = models.CharField(max_length=50,verbose_name="Nombre del juego")
-    imagenJuego3 = models.ImageField(upload_to="skins",null = True)
+    imagenJuego3 = models.ImageField(upload_to="juegos",null = True)
 
     def __str__(self):
         return self.nombreJuego3
