@@ -10,7 +10,7 @@ class Usuario(models.Model):
     nombreUsuario = models.CharField(max_length=50 , unique=True ,verbose_name="Nombre de usuario")
     correo = models.CharField(max_length=50,unique=True,verbose_name="Correo")
     fechaNac = models.CharField(max_length=50,verbose_name="Fecha de nacimiento")
-    contra = models.CharField(max_length=50, unique=True ,verbose_name="Contraseña")
+    contra = models.CharField(max_length=50,verbose_name="Contraseña")
 
     def __str__(self):
         return self.nombreUsuario
